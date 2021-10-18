@@ -19,6 +19,9 @@ export class AppComponent implements OnInit {
 
   constructor(private srv: FetchdataService, private formBuilder: FormBuilder) { }
 
+  /*
+  * Metodo de inicio
+  */
   ngOnInit() {
     this.esVacio = true;
     this.buscasdorForm = this.formBuilder.group({
@@ -29,6 +32,9 @@ export class AppComponent implements OnInit {
     this.getPosts();
   }
 
+  /*
+  * Metodo para consultar todos los posts existentes en el sistema
+  */
   getPosts(): void {
     this.srv.getData(this.url)
       .subscribe(data => {
@@ -44,6 +50,9 @@ export class AppComponent implements OnInit {
       )
   }
 
+  /*
+  * Metodo para borrar el filtro realizado
+  */
   Borrar(): void{
     this.posts = [];
     for (let item of this.bckposts) {
@@ -51,6 +60,9 @@ export class AppComponent implements OnInit {
     }    
   }
 
+  /*
+  * Metodo para consultar los posts pasando la palabra clave como parametro
+  */
   Consultar(): void {
     let palabra = this.buscasdorForm.controls.palabraClave.value;
     if (palabra == '') {
