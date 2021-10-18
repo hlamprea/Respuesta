@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public vector = [];
   public posts = [];
   public bckposts = [];
-  public url = environment.apiUrl; 
+  public url = environment.apiUrl;
 
   constructor(private srv: FetchdataService, private formBuilder: FormBuilder) { }
 
@@ -53,17 +53,18 @@ export class AppComponent implements OnInit {
   /*
   * Metodo para borrar el filtro realizado
   */
-  Borrar(): void{
+  Borrar(): void {
     this.posts = [];
     for (let item of this.bckposts) {
       this.posts.push(item);
-    }    
+    }
   }
 
   /*
   * Metodo para consultar los posts pasando la palabra clave como parametro
   */
   Consultar(): void {
+    debugger;
     let palabra = this.buscasdorForm.controls.palabraClave.value;
     if (palabra == '') {
       this.esVacio = false;
@@ -71,17 +72,22 @@ export class AppComponent implements OnInit {
     }
     this.posts = [];
     for (let item of this.bckposts) {
-      if (item.id == palabra)
+      if (item.id == palabra) {
         this.posts.push(item);
+      }
 
-      if (item.userId == palabra)
+      if (item.userId == palabra) {
         this.posts.push(item);
+      }
 
-      if (item.title == palabra)
+      if (item.title.indexOf(palabra) >= 0) {
         this.posts.push(item);
+      }
 
-      if (item.body == palabra)
+      if (item.body.indexOf(palabra) >= 0) {
         this.posts.push(item);
+      }
+
     }
   }
 }
