@@ -1,0 +1,11 @@
+.img-circle {
+    border-radius: 50%;
+}
+
+.card-description {
+    text-align: justify;
+}
+
+.alert-warning {
+    background-color: cyan;
+}

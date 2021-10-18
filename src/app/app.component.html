@@ -1,0 +1,86 @@
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="alert alert-warning" role="alert">
+            <p style="text-align: center; font-size: xx-large;" class="font-weight-bold">
+                BUSCADOR DE POSTS
+            </p>
+
+        </div>
+
+        <form class="form" [formGroup]="buscasdorForm">
+            <div class="alert" role="alert">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-lg-3">
+                        <div class="form-group">
+                            <label>Palabra clave</label><span style="color: red">*</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="palabra clave" aria-describedby="basic-addon2" formControlName="palabraClave" id="palabraClave" name="palabraClave" />
+                            </div>
+                            <span *ngIf="!esVacio" style="color: red">
+                                Digite la palabra clave, por favor</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-3">
+                        <br/>
+                        <div class="form-group text-center">
+                            <button id="kt_login_signin_submit" (click)="Consultar()" class="btn btn-primary my-20">
+                                <i class="fas fa-search fa"></i> Consultar
+                            </button>
+                            <button id="cancel" (click)="Borrar()" class="btn btn-danger m-1">
+                                 Limpiar filtro
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b example example-compact">
+                        <div class="card-body" style="width: 100%; overflow-x: scroll">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-3" *ngFor="let post of posts">
+                                            <div class="card card-profile">
+                                                <div class="card-avatar">
+                                                    <a href="javascript:void(0)">
+                                                        <img class="img-circle" src="./assets/media/users/100_{{post.userId}}.jpg" />
+                                                    </a>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h6 class="card-category text-gray">ID | {{post.id}}</h6>
+                                                    <h4 class="card-title">Autor | {{post.userId}}</h4>
+                                                    <p class="card-description">
+                                                        {{post.body}}
+                                                    </p>
+                                                    <a target="_blank" href="https://jsonplaceholder.typicode.com/posts/{{post.id}}" class="btn btn-primary btn-round">más información</a>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item" *ngFor="let post of posts">
+                                <!--p>ID: {{post.id}}</p>
+                                <p>Titulo: {{post.title}}</p>
+                                <p>Autor: {{post.userId}}</p>
+                                <span>
+                                    {{post.body}}
+                                </span>
+                                <br/>
+                                <br/-->
+                            </div>
+
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
