@@ -1,6 +1,6 @@
-Titulo: Buscador
+Titulo: Buscador de POSTS
 Angular CLI: 8.3.23
 Versión Bootstrap: 4.5.3
 
 Descripción: 
-Aplicación web desarrollada en angular cli 8.3.23, la cual se utiliza para buscar los posts registrados en el sistema 'https://jsonplaceholder.typicode.com/posts'. Además, permite la busqueda de palabras claves y despliega los posts que coinciden con la busqueda.
+Aplicación web con front end desarrollado en angular cli 8.3.23, la cual se utiliza para buscar todos los posts registrados en el sistema consumiendo el web api 'https://jsonplaceholder.typicode.com/posts'. Además, permite la búsqueda de palabras claves dentro de los posts desplegados mediante filtro conformado por una casilla de texto y dos botones (consultar y limpiar filtro), el primer botón, valida que se haya ingresado una palabra clave y de ser así, despliega los posts que contienen la palabra clave ingresada, sino, muestra mensaje informando que es necesario ingresar dicha palabra para realizar la operación deseada, cada post desplegado contiene: ID del post, ID del autor, titulo y cuerpo del mismo, adicionalmente, contiene un boton (más información) que al ser presionado despliega informacion del post haciendo uso del web api 'https://jsonplaceholder.typicode.com/posts/ID'. Por otra parte, EL segundo botón, reinicia el filtro de búsqueda limpiando casilla de texto con palabra clave y desplegando nuevamente todos los posts existentes. 
